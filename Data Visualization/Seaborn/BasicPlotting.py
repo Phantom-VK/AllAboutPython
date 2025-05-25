@@ -144,7 +144,7 @@ sns.lmplot(
     col_wrap=2,         # Wrap columns
     height=4,
     aspect=1.2,
-    markers=['o', 'x'],
+    markers='ox',
     scatter_kws={'alpha':0.6}
 )
 plt.suptitle("Regression Plots by Day and Meal Time", y=1.02)
