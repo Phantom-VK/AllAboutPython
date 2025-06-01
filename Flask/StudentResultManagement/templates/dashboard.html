@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <h2>Welcome, {{ student.firstname }} {{ student.lastname }}</h2>
+        <p class="text-muted">Email: {{ session['user'] }}</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0">Your Results</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    {% for subject, score in student.scores.items() %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ subject|capitalize }}
+                            <span class="badge bg-primary rounded-pill">{{ score }}</span>
+                            <a href="{{ url_for('show_result', subject=subject, score=score) }}" 
+                               class="btn btn-sm btn-outline-info">Details</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a href="{{ url_for('logout') }}" class="btn btn-outline-danger">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
