@@ -1,0 +1,19 @@
+name: test
+
+on:
+  pull_request_target:
+    types: [closed]
+
+jobs:
+  display-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Display message
+        run: echo "Workflow from branch ${{ github.ref_name }} ran. "
+
+      - name: Access env variable
+        if: "${{ env.TEST_SECRET_1 != '' }}"
+        run: echo "Environment Variable accessed-  ${{ env.TEST_SECRET_1 }}. "
