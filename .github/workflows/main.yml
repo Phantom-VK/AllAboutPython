@@ -1,9 +1,6 @@
 name: test
 
-on:
-  pull_request_target:
-    types: [closed]
-
+on: pull_request
 jobs:
   display-message:
     runs-on: ubuntu-latest
@@ -18,5 +15,4 @@ jobs:
         env:
           TEST_VAR: ${{ vars.TEST_VAR }}
         if: "${{ env.TEST_VAR != '' }}"
-
         run: echo "Environment Variable accessed-  ${{ env.TEST_VAR }}. "
