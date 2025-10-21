@@ -18,4 +18,4 @@ jobs:
         env:
           TEST_VAR: ${{ vars.TEST_VAR }}
         if: "${{ env.TEST_VAR != '' }}"
-        run: echo "Environment Variable accessed-  ${{ env.TEST_SECRET_1 }}. "
+        run: echo "Environment Variable accessed-  ${{ env.TEST_VAR }}. "
