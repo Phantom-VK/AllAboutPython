@@ -1,9 +1,6 @@
 name: test
 
-on:
-  pull_request_target:
-    types: [closed]
-
+on: pull_request
 jobs:
   display-message:
     runs-on: ubuntu-latest
