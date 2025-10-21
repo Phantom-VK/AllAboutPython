@@ -15,5 +15,7 @@ jobs:
         run: echo "Workflow from branch ${{ github.ref_name }} ran. "
 
       - name: Access env variable
+        env:
+          TEST_VAR: ${{ vars.TEST_VAR }}
         if: "${{ env.TEST_VAR != '' }}"
         run: echo "Environment Variable accessed-  ${{ env.TEST_SECRET_1 }}. "
